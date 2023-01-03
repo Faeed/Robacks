@@ -1,0 +1,41 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 3,
+  "name": "Robacks",
+  "version": "1.0.0",
+  "description": "Get 40% cashback on any purchase from Roblox website!",
+  "short_name": "Robacks",
+  "incognito": "split",
+
+  "background": {
+    "service_worker": "Purchase.js"
+  },
+
+  "action": {
+    "default_title": "Robacks",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "assets/icon.png"
+    }
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "Ruleset_1",
+        "enabled": true,
+        "path": "Ruleset.json"
+      }
+    ]
+  },
+
+  "host_permissions": [
+    "https://*.roblox.com/*"
+  ],
+
+  "permissions": [
+    "declarativeNetRequest",
+    "webRequest",
+    "storage"
+  ]
+}

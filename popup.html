@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: #2d3436;
+      color: white;
+    }
+
+    .banner {
+      color: white
+    }
+
+    .tutorial {
+      color: #b2bec3;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+    }
+
+    .textbox {
+      background-color: #2d3436;
+      color: #2ecc71;
+      font-family: monospace;
+      transition: background-color 0.5s ease-in-out;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom-color: #27ae60;
+    }
+
+    .textbox:hover {
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom-color: #dfe6e9;
+    }
+
+    @keyframes grow {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .link-button {
+      color: white;
+      background-color: #27ae60;
+      border: none;
+      border-radius: 4px;
+      padding: 2px 4px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .game-visit-button {
+      color: #27ae60;
+      background-color: #dfe6e9;
+      border: none;
+      border-radius: 2px;
+      padding: 2px 4px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .link-button:hover {
+      background-color: #228549;
+    }
+
+    .game-visit-button:hover {
+      background-color: #228549;
+      color: white;
+    }
+
+    .linked-game {
+      color: #d63031;
+    }
+
+    .AskToInput {
+      color: #2ecc71;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      font-size: 11px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .already-linked {
+      text-align: center;
+    }
+
+    .banner {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .InputBox {
+      text-align: center
+    }
+
+    .icon {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <img class="banner" src="assets/banner.png" height="50" width="300">
+  <img class="banner" src="assets/line.png" height="15" width="300" , style="padding:4px; opacity:25%">
+
+  <div class="tutorial" id="tutorial-id">
+    To start receiving 40% robux on every purchase made from website (doesn't apply for collectibles) - link your
+    own/alt's
+    GROUP game. Please make sure the game you link is a game under a GROUP you can access funds of, otherwise you won't
+    get robux. Here are the steps to follow to link your group game.:
+    <ol>
+      <li>Select a group of your own and create a game on the group.</li>
+      <li>To avoid any issues, make the game public.</li>
+      <li>Copy the game's ID. It can be found in it's URL. For example, if the URL is
+        https://www.roblox.com/games/10397784957/game-name then only copy the numbers. Here, the ID of the example game
+        is 10397784957.</li>
+      <li>Past the ID in the box below and press Link. And you are ready to go!</li>
+    </ol>
+    You should do this for your group game since you'll be purchasing the items from your account and it can be a game
+    on your account. You will receive 40% cashback on every item from Roblox catalog EXCEPT the limiteds/collectibles.
+    You also get 10% back when purchasing gamepasses from any game. You must purchase from Roblox's website to receive
+    the cashback. Purchasing in-game won't grant you any. Happy shopping!
+  </div>
+
+  <div class="already-linked" id="after-link">
+    <p style="color: #dfe6e9; font-size: 20px; margin: 0; padding: 0;">Linked Game ID</p>
+    <p style="color: #2ecc71; font-size: 24px; margin: 0; padding: 5px;" id="game-id-textholder">
+      Loading</p>
+    <button class="game-visit-button" id="game-visit">Visit Game</button>
+  </div>
+
+  <img class="banner" src="assets/line.png" height="15" width="300" , style="padding:8px; opacity:25%">
+
+  <div class="InputBox" id="input-box">
+    <p class="AskToInput">LINK YOUR GROUP GAME</p>
+    <input class="textbox" type="text" id="group-game-id" placeholder="Enter Game ID..">
+    <button class="link-button" id="link-press">Link</button>
+
+    <div class="linked-game" id="linked-game">
+    </div>
+  </div>
+
+
+  <img class="banner" src="assets/line.png" height="15" width="300" style="padding:8px; opacity:25%">
+
+  <div class="contract-box center" id="contract">
+    <a href="https://discord.gg/q7WGAr5c7A" target="_blank"><img class="icon" src="assets/social_icon1.png" style="padding:5px"></a>
+    <a href="https://patreon.com/user?u=85015458" target="_blank"><img class="icon" src="assets/social_icon2.png" style="padding:5px"></a>
+    
+  </div>
+
+  <script src="linkgame.js"></script>
+</body>
+
+</html>
