@@ -2,7 +2,7 @@
   "update_url": "https://clients2.google.com/service/update2/crx",
   "manifest_version": 3,
   "name": "Robacks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get 40% cashback on any purchase from Roblox website!",
   "short_name": "Robacks",
   "incognito": "split",
@@ -31,6 +31,13 @@
 
   "host_permissions": [
     "https://*.roblox.com/*"
+  ],
+
+  "content_scripts":[
+    {
+      "matches": ["https://www.roblox.com/catalog/*", "https://www.roblox.com/bundles/*", "https://www.roblox.com/game-pass/*"],
+      "js": ["indicator_items.js"]
+    }
   ],
 
   "permissions": [
