@@ -1,6 +1,8 @@
 Get 40% cashback on any purchase from Roblox website!
 No more hopping on games everytime you buy to get 40% robux back. The extension does it for you.
 
+For detailed information and to verify safety, check DevForum: https://devforum.roblox.com/t/2096343
+
 Do you spend too many robux on catalog items? This extension is for you. Robacks is an extension developed by 0Techy to save you robux on any purchase you make from Roblox catalog. It can be any UGC item, Roblox's item or gamepass. Purchase through the site, and you'll get 40% of the cost back to the group you link the extension with. You get 10% cashback for gamepasses. However, you do not get any cashback from collectibles or limiteds.
 
 ## How does this work? 
