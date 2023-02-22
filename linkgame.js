@@ -34,6 +34,19 @@ function ConfigureGameButton() {
   });
 }
 
+function AutoPasteGameID() {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  var url = tabs[0].url;
+  if (/https:\/\/www\.roblox\.com\/games\/\d+/.test(url)) {
+    var gameId = url.match(/games\/(\d+)/)[1];
+    document.getElementById("group-game-id").value = gameId;
+  } else {
+    document.getElementById("linked-game").style.display = "block";
+    document.getElementById("linked-game").innerHTML = "You're not on a gamepage!";
+  }
+});
+}
+
 function UnlinkGame() {
   chrome.storage.local.remove("linkedGroupGameId", function() {
     document.getElementById("linked-game").style.display = "block";
@@ -48,10 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('link-press');
   const btn2 = document.getElementById('game-visit');
   const btn3 = document.getElementById('unlink-button');
+  const btn4 = document.getElementById('paste-button');
 
   btn.addEventListener('click', linkGroupGame);
   btn2.addEventListener('click', ConfigureGameButton);
   btn3.addEventListener('click', UnlinkGame);
+  btn4.addEventListener('click', AutoPasteGameID);
 });
 
 

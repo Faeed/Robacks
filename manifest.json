@@ -2,7 +2,7 @@
   "update_url": "https://clients2.google.com/service/update2/crx",
   "manifest_version": 3,
   "name": "Robacks",
-  "version": "1.0.2",
+  "version": "1.0.2.1",
   "description": "Get 40% cashback on any purchase from Roblox website!",
   "short_name": "Robacks",
   "incognito": "split",

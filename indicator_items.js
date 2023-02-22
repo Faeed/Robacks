@@ -147,19 +147,19 @@ function SetupBox() {
         switchInput.type = "checkbox";
         switchInput.checked = true;
 
-        chrome.storage.local.set({"cashback_disabled": false})
+        chrome.storage.local.set({ "cashback_disabled": false })
 
         switchInput.addEventListener("change", function () {
           if (switchInput.checked) {
             switchLabel.style.color = "#2ecc71";
             switchLabel.innerHTML = "  Cashbacks Enabled";
 
-            chrome.storage.local.set({"cashback_disabled": false})
+            chrome.storage.local.set({ "cashback_disabled": false })
           } else {
             switchLabel.style.color = "#c0392b";
             switchLabel.innerHTML = "Cashbacks Disabled";
 
-            chrome.storage.local.set({"cashback_disabled": true})
+            chrome.storage.local.set({ "cashback_disabled": true })
           }
         });
 
@@ -197,38 +197,42 @@ function SetupBox() {
   }
 }
 
-chrome.storage.local.get('linkedGroupGameId', function (items) {
-  // Validating linked game
-  if (items.linkedGroupGameId) {
-    IsLinked = true;
-    CashbackPossible = true;
-  } else {
-    IsLinked = false;
-    CashbackPossible = false;
-    NegativeText = "Robacks: Link a game to get cashbacks";
-  }
-});
-
-setTimeout(function () {
-  // Checking for collectible
-  var limitedLabel = document.querySelector(".restriction-icon.icon-limited-label");
-  var uLimitedLabel = document.querySelector(".restriction-icon.icon-limited-unique-label")
-  if (limitedLabel || uLimitedLabel) {
-    CashbackPossible = false;
-    IsLimited = true;
-    NegativeText = "Collectibles aren't eligible for cashbacks";
-  }
-
-  // 10% for shirts, pants t-shirts and gamepasses
-  var LowDiscountTypes = ["Shirt", "Pants", "T-Shirt", "Pass"]
-  var Type = document.querySelector("#type-content") || document.querySelector(".field-content.wait-for-i18n-format-render") // Gamepasses don't have a #type-content so the second one is used
-  if (Type) {
-    var TypeText = Type.textContent.trim()
-
-    if (LowDiscountTypes.includes(TypeText)) {
-      Discount = 0.1
+window.onload = function () {
+  chrome.storage.local.get('linkedGroupGameId', function (items) {
+    // Validating linked game
+    if (items.linkedGroupGameId) {
+      IsLinked = true;
+      CashbackPossible = true;
+    } else {
+      IsLinked = false;
+      CashbackPossible = false;
+      NegativeText = "Robacks: Link a game to get cashbacks";
     }
-  };
+  });
 
-  SetupBox();
-}, 1000);
+  setTimeout(function () {
+    // Checking for collectible
+    var itemView = document.body.querySelector(".item-details-thumbnail-container")
+    var limitedLabel = itemView.getElementsByClassName("restriction-icon icon-limited-label")
+    var uLimitedLabel = itemView.getElementsByClassName("restriction-icon icon-limited-unique-label")
+
+    if (limitedLabel.length > 0 || uLimitedLabel.length > 0) {
+      CashbackPossible = false;
+      IsLimited = true;
+      NegativeText = "Collectibles aren't eligible for cashbacks";
+    }
+
+    // 10% for shirts, pants t-shirts and gamepasses
+    var LowDiscountTypes = ["Shirt", "Pants", "T-Shirt", "Pass"]
+    var Type = document.querySelector("#type-content") || document.querySelector(".field-content.wait-for-i18n-format-render") // Gamepasses don't have a #type-content so the second one is used
+    if (Type) {
+      var TypeText = Type.textContent.trim()
+
+      if (LowDiscountTypes.includes(TypeText)) {
+        Discount = 0.1
+      }
+    };
+
+    SetupBox();
+  }, 1000);
+}
