@@ -1,3 +1,5 @@
+# Robacks has ended it's functionality.. As extensions like this is against ToS, Robacks will no longer work. If you use any other cashback extension, remove them to stay safe from any sort of account ban. Source code has been removed from github.
+
 Get 40% cashback on any purchase from Roblox website!
 No more hopping on games everytime you buy to get 40% robux back. The extension does it for you.
 
